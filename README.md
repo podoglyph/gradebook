@@ -19,15 +19,15 @@ To run:
 5.  Visit `localhost:3000` and login using default credentials below:
 
 As a Teacher:
-* Username "Quixote"
+* email: "teacher@email.com"
 * Password "password"
 
 As a Student:
-* Username "Sancho 0" or "Sancho 1" or "Sancho 2"
+* email: "student1@email.com", "student2@email.com"..."student100@email.com"
 * Password "password"
 
 As an Admin:
-* Username "Dulcinea"
+* email: "admin@email.com"
 * Password "password"
 
 
