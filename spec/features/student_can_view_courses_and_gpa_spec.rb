@@ -5,11 +5,11 @@ RSpec.describe "Student Dashboard" do
 
   let(:user) {create(:user, role: :student)}
   let(:teacher) {create(:user, role: :teacher)}
-  attr_reader :courses
+  attr_reader :courses, :semester, :semester2
 
   before(:each) do
-    semester = create(:semester, term: "Spring 1922", current: false)
-    semester2 = create(:semester, term: "Fall 1922", current: false)
+    @semester = create(:semester, term: "Spring 1922", current: false)
+    @semester2 = create(:semester, term: "Fall 1922", current: false)
 
     @courses = create_list(:course, 4, user_id: teacher.id)
 
@@ -34,6 +34,8 @@ RSpec.describe "Student Dashboard" do
       expect(page).to have_content("Welcome, #{user.first_name}")
       expect(page).to have_content(courses[0].name)
       expect(page).to have_content(courses[3].name)
+      expect(page).to have_content(semester.term)
+      expect(page).to have_content(semester2.term)
       expect(page).to have_content(user.enrollments.first.grade)
       expect(page).to have_content(user.enrollments.last.grade)
     end
