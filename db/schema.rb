@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20180311021913) do
 
   create_table "semesters", force: :cascade do |t|
     t.string "term"
+    t.boolean "current"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
