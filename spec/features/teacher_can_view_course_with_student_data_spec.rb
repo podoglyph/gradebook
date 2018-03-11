@@ -26,7 +26,7 @@ RSpec.describe "Teacher Courses" do
       expect(page).to have_content(course.name)
       expect(page).to have_content(semester.term)
 
-      expect(page).to have_content(student.name)
+      expect(page).to have_content(student.first_name)
       expect(page).to have_content(student.enrollments.first.grade)
     end
 
