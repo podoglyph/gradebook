@@ -7,6 +7,7 @@ class Seed
     create_teacher_courses
     create_semesters
     add_courses_to_semester
+    enroll_students
   end
 
   def self.create_teacher
@@ -81,9 +82,9 @@ class Seed
 
     sem_courses.each do |sem|
       students = User.where(role: "student").limit(12)
-      student.each do |s|
+      students.each do |s|
         s.enrollments.create!(grade: Faker::Number.between(70, 100), semester_course_id: sem.id)
-        puts "Added enrollment for #{s.name}."
+        puts "Added enrollment for #{s.first_name}."
       end
     end
 
