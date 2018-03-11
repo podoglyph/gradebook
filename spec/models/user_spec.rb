@@ -13,6 +13,8 @@ RSpec.describe User, type: :model do
 
   describe "ActiveRecord associations" do
     it {should have_many(:courses)}
+    it {should have_many(:enrollments)}
+    it {should have_many(:semester_courses).through(:enrollments)}
   end
 
 

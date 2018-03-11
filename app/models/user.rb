@@ -6,4 +6,7 @@ class User < ApplicationRecord
   enum role: ["student", "teacher", "admin"]
 
   has_many :courses
+  has_many :enrollments
+  has_many :semester_courses, through: :enrollments
+
 end
