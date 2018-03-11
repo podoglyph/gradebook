@@ -2,7 +2,7 @@ class Teacher::CoursesController < ApplicationController
 
   def show
     @course_data = Course.view_course(course_params, semester_params[:semester_term])
-    @student_data = Course.enrolled_students(course_params, semester_params)
+    @student_data = SemesterCourse.enrolled_students(course_params, semester_params)
   end
 
   private

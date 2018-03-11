@@ -5,12 +5,6 @@ class Course < ApplicationRecord
   has_many :semester_courses
   has_many :semesters, through: :semester_courses
 
-
-
-  def self.enrolled_students(course, semester)
-    
-  end
-
   def self.view_course(course_id, semester_term)
     {
       course_name: Course.find(course_id).name,
