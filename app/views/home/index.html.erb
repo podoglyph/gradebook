@@ -1,0 +1,15 @@
+<div class="row login-form">
+
+  <%= form_for(@user, url: '/login', method: :post, html: {class: "form-group"}) do |f| %>
+
+    <%= f.label :email %>
+    <%= f.text_field :email, :class => "form-control" %>
+    <br />
+    <%= f.label :password %>
+    <%= f.password_field :password, :class => "form-control" %>
+    <br />
+    <%= f.submit "Login", :class => "btn btn-success" %>
+
+  <% end %>
+
+</div>
