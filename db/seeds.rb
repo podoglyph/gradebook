@@ -4,6 +4,9 @@ class Seed
     create_teacher
     create_admin
     create_students
+    create_teacher_courses
+    create_semesters
+    add_courses_to_semester
   end
 
   def self.create_teacher
@@ -38,6 +41,37 @@ class Seed
         role: "student"
       )
       puts "Created Student #{student.first_name}."
+    end
+  end
+
+  def self.create_teacher_courses
+    teacher = User.first
+    courses = %w(Physics Astronomy History Mathematics Philosophy)
+
+    courses.each do |c|
+      teacher.courses.create!(name: c)
+      puts "Created Course #{c}."
+    end
+  end
+
+  def self.create_semesters
+    semesters = ["Spring 2018", "Fall 2018"]
+
+    semesters.each do |s|
+      Semester.create!(term: s)
+    end
+
+    current_sem = Semester.find_by(term: "Spring 2018")
+    current_sem.update(current: true)
+  end
+
+  def self.add_courses_to_semester
+    courses = Course.all
+    semesters = Semester.all
+
+    semesters.each do |s|
+      s.courses << courses.sample(3)
+      puts "Added 3 Courses to #{s.term}."
     end
   end
 

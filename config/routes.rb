@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   namespace :teacher do
     resources :dashboard, only: [:index]
+    resources :courses, only: [:show]
   end
 
   namespace :student do
