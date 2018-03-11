@@ -1,3 +1,20 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  root to: "home#index"
+
+  post "/login", to: "sessions#create"
+  delete "/login", to: "sessions#destroy"
+
+  namespace :teacher do
+    resources :dashboard, only: [:index]
+  end
+
+  namespace :student do
+    resources :dashboard, only: [:index]
+  end
+
+  namespace :admin do
+    resources :dashboard, only: [:index]
+  end
+
 end

@@ -1,0 +1,24 @@
+@import "bootstrap";
+
+.flash-message {
+  width: 100%;
+  z-index: 999;
+  position: absolute;
+
+  .alert {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
+
+.login-form {
+  max-width: 100%;
+
+  .form-group {
+    margin: 0 auto;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
