@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :course do
-    name "MyString"
+    name {Faker::Book.title}
     user nil
   end
 end

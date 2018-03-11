@@ -10,11 +10,13 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">#</th>
-        <td></td>
-        <td></td>
-      </tr>
+      <% @courses.each_with_index do |c, i| %>
+        <tr>
+          <th scope="row"><%= i += 1 %></th>
+          <td><%= link_to c.course_name, teacher_course_path(c, semester: {semester_id: c.semester_id, semester_term: c.semester_term}) %></td>
+          <td><%= c.semester_term %></td>
+        </tr>
+      <% end %>
     </tbody>
   </table>
 

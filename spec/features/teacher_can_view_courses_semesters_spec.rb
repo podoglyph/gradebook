@@ -24,7 +24,7 @@ RSpec.describe "Teacher Dashboard" do
       expect(page).to have_content(courses.last.name)
     end
 
-    xit "can click on a course to see the course show page" do
+    it "can click on a course to see the course show page" do
       expect(current_path).to eq(teacher_dashboard_index_path)
 
       click_on courses[0].name
