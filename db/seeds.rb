@@ -7,6 +7,7 @@ class Seed
     create_teacher_courses
     create_semesters
     add_courses_to_semester
+    enroll_students
   end
 
   def self.create_teacher
@@ -32,10 +33,10 @@ class Seed
   end
 
   def self.create_students
-    10.times do |i|
+    70.times do |i|
       student = User.create(
-        first_name: Faker::Name.first_name,
-        last_name: Faker::Name.last_name,
+        first_name: Faker::Name.unique.first_name,
+        last_name: Faker::Name.unique.last_name,
         email: "student#{i}@email.com",
         password: "password",
         role: "student"
@@ -73,6 +74,20 @@ class Seed
       s.courses << courses.sample(3)
       puts "Added 3 Courses to #{s.term}."
     end
+  end
+
+  def self.enroll_students
+
+    sem_courses = SemesterCourse.all
+
+    sem_courses.each do |sem|
+      students = User.where(role: "student").order("RANDOM()").limit(12)
+      students.each do |s|
+        s.enrollments.create!(grade: Faker::Number.between(70, 100), semester_course_id: sem.id)
+        puts "Added enrollment for #{s.first_name}."
+      end
+    end
+
   end
 
 end

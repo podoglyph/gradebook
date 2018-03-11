@@ -4,12 +4,8 @@ class Course < ApplicationRecord
   belongs_to :user
   has_many :semester_courses
   has_many :semesters, through: :semester_courses
+  has_many :enrollments, through: :semester_courses
 
-
-
-  def self.enrolled_students(course, semester)
-    
-  end
 
   def self.view_course(course_id, semester_term)
     {
