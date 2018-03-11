@@ -5,4 +5,5 @@ class User < ApplicationRecord
 
   enum role: ["student", "teacher", "admin"]
 
+  has_many :courses
 end
