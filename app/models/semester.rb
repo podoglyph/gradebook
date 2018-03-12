@@ -5,4 +5,17 @@ class Semester < ApplicationRecord
   has_many :courses, through: :semester_courses
   has_many :enrollments, through: :semester_courses
 
+
+  def self.total_enrollments
+    semesters = Semester.joins(:enrollments)
+
+    semesters.map do |s|
+      {
+        term: s.term,
+        total_enrolled: s.enrollments.count
+      }
+    end
+
+  end
+
 end

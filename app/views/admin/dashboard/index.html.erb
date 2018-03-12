@@ -1,36 +1,14 @@
 <div class="row admin-dashboard">
 
   <%= render "shared/dashboard_welcome" %>
-  <div class="col-md-8">
-    <% @semesters.each_with_index do |semester, i| %>
-      <h4><%= semester.term %></h4>
-      <table class="table avg-course-grade-<%= semester.term %>">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Course</th>
-            <th scope="col">Average Grade</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% semester.sem_courses.each_with_index do |sem_course, i| %>
-            <tr class="<%= sem_course.id %>">
-              <th scope="row"><%= i %></th>
-              <td id="course-id"><%= sem_course.name %></td>
-              <td id="grade"><%= sem_course.avg_grade %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    <% end %>
-  </div>
+
   <div class="col-md-4">
     <div class="col-md-12 admin-total-enrollments">
       <h3>Total Enrollments</h3>
       <ul>
         <% @semester_enrollments.each do |semester| %>
           <li>
-            <%= semester.term %>: <%= semester.enrollments %>
+            <%= semester[:term] %> Enrollment: <%= semester[:total_enrolled] %> Students
           </li>
         <% end %>
       </ul>
