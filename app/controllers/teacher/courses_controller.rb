@@ -1,4 +1,4 @@
-class Teacher::CoursesController < ApplicationController
+class Teacher::CoursesController < Teacher::AuthController
 
   def show
     @course_data = Course.view_course(course_params, semester_params[:semester_term])

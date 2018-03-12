@@ -1,4 +1,4 @@
-class Admin::DashboardController < ApplicationController
+class Admin::DashboardController < Admin::AuthController
 
   def index
     @semester_courses = SemesterCourse.average_course_grades

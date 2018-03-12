@@ -1,4 +1,4 @@
-class Student::DashboardController < ApplicationController
+class Student::DashboardController < Student::AuthController
 
   def index
     @course_data = SemesterCourse.student_courses(current_user)
