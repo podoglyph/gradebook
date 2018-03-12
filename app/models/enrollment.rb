@@ -24,5 +24,4 @@ class Enrollment < ApplicationRecord
     end
   end
 
-
 end

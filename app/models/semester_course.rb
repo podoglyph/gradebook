@@ -18,4 +18,10 @@ class SemesterCourse < ApplicationRecord
     end
   end
 
+  def self.average_course_grades
+    joins(:semester, :course, :enrollments)
+      .select("AVG(enrollments.grade) AS avg_grade, courses.name AS name, semesters.term AS term, semester_courses.id as id")
+      .group("semester_courses.id, courses.name, semesters.term")
+  end
+
 end
