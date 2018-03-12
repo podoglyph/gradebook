@@ -47,33 +47,18 @@ RSpec.describe "Admin Dashboard" do
 
     end
 
-    xit "can see average grade for a given course" do
+    it "can see average grade for a given course" do
       expect(current_path).to eq(admin_dashboard_index_path)
 
-      within("table.avg-course-grade-#{semester.term}") do
-        within("tr.#{sem_courses[0].id}") do
-          expect(page).to have_content("#{@courses[0].name}")
+      within("table.avg-course-grade") do
+        expect(page).to have_css('.sem-course-record', count: 4)
+        first("tr") do
+          expect(page).to have_content("#{courses[0].name}")
+          expect(page).to have_content("#{semester.term}")
           expect(page).to have_content(96)
         end
-        within("tr.#{sem_courses[1].id}") do
-          expect(page).to have_content("#{@courses[1].name}")
-          expect(page).to have_content(94)
-        end
       end
-
-      within("table.avg-course-grade-#{semester2.term}") do
-        within("tr.#{sem_courses[2].id}") do
-          expect(page).to have_content("#{@courses[2].name}")
-          expect(page).to have_content(96)
-        end
-        within("tr.#{sem_courses[3].id}") do
-          expect(page).to have_content("#{@courses[3].name}")
-          expect(page).to have_content(94)
-        end
-      end
-
     end
-
+    
   end
-
 end

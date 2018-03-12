@@ -1,7 +1,28 @@
 <div class="row admin-dashboard">
 
   <%= render "shared/dashboard_welcome" %>
-
+  <div class="col-md-8">
+    <table class="table avg-course-grade">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Course</th>
+          <th scope="col">Semester</th>
+          <th scope="col">Average Grade</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @semester_courses.each_with_index do |sc, i| %>
+          <tr class="sem-course-record">
+            <th scope="row"><%= i %></th>
+            <td id="course-id"><%= sc.name %></td>
+            <td id="course-id"><%= sc.term %></td>
+            <td id="grade"><%= sc.avg_grade.ceil %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
   <div class="col-md-4">
     <div class="col-md-12 admin-total-enrollments">
       <h3>Total Enrollments</h3>

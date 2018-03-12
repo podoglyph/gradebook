@@ -7,7 +7,7 @@ class Semester < ApplicationRecord
 
 
   def self.total_enrollments
-    semesters = Semester.joins(:enrollments)
+    semesters = Semester.joins(:enrollments).group("semesters.id")
 
     semesters.map do |s|
       {
