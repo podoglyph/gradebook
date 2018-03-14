@@ -33,3 +33,5 @@ group :development, :test do
   gem 'factory_bot_rails', '~> 4.8.2'
   gem 'pry-state', '~> 0.1.10'
 end
+
+ruby '2.4.1'
