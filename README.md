@@ -5,6 +5,7 @@
 Gradebook is an app for teachers, students, and administrators to view and record data on classes, enrollments, and grades for given semesters.
 
 Take it for a spin using the credentials for Teacher, Student, and Admin below: https://gradebook-v.herokuapp.com/
+
 This app is built with:
 
 * `Rails 5.1.5`
